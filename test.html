@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>edit in place</title>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="editinplace.js"></script>
+</head>
+<body>
+	<div id="edit1">
+	</div>
+	<div id="edit2">
+	</div>
+	<div>
+		<input type="button" value="get" id="getvalue"></input>
+		<input type="button" value="set" id="setvalue"></input>
+	</div>
+	<script type="text/javascript">
+		var options1={
+			"id":"edit1",
+			editable:true
+		};
+		var editinplace1=new EditInPlace(options1);
+		editinplace1.data("edit1");
+		var options2={
+			"id":"edit2"
+		};
+		var editinplace2=new EditInPlace(options2);
+		editinplace2.data("edit2");
+		$("#getvalue").click(function(event) {
+			alert(editinplace1.data());
+		});
+		$("#setvalue").click(function(event) {
+			editinplace2.data("hello world!")
+		});
+	</script>
+</body>
+</html>
